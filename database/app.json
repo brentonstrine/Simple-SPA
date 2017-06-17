@@ -1,18 +1,18 @@
 {
-    pages: {
-        home: {
-            title: "Brenton's Homepage",
-            heading: "Brenton Strine",
-            main: [
+    "pages": {
+        "home": {
+            "title": "Brenton's Homepage",
+            "heading": "Brenton Strine",
+            "main": [
                 "This website is a single page app built from the ground up on a JPJH stack. JPJH stands for JSON, PHP, Javascript and HTML.",
-                "There are definitely better stacks out there, but for the sake of learning web development, this stack is helpful.",
-            ],
+                "There are definitely better stacks out there, but for the sake of learning web development, this stack is helpful."
+            ]
         }
     },
-    components: {
-        sidebar: {
-            heading: "Site Navigation",
+    "components": {
+        "sidebar": {
+            "heading": "Site Navigation"
         },
-        footer: "Copyright {year} Brenton Strine"
+        "footer": "Copyright {year} Brenton Strine"
     }
 }
