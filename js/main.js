@@ -8,7 +8,7 @@ $(function() {
                 buildSite(data);
             },
             error: function(response){
-                console.log("some ajax porblem.")
+                alert("some ajax porblem.")
             }
         })
     };
@@ -16,8 +16,7 @@ $(function() {
 
     var buildSite = function(db){
         var currentPage = "home"
-        var header = document.querySelector(".js-navbar");
-        var siteHeading = header.querySelector(".js-site__heading");
+        var siteHeading = document.querySelector(".js-site__heading");
         var content = document.querySelector(".js-content");
         var pageHeading = content.querySelector(".js-page__heading");
         var pageContent = content.querySelector(".js-page__content");
@@ -27,8 +26,17 @@ $(function() {
         //populate heading
         document.querySelector("title").textContent = dbPage.title;
         siteHeading.textContent = db.components.title;
+
         //populate header
         pageHeading.textContent = dbPage.heading;
+
+        //populate sidebar
+        var navBarUL = document.querySelector(".js-navbar__ul");
+        var navBarListFrag = "";
+        db.components.sidebar.links.forEach(function(link){
+            navBarListFrag += "<li class='nav-item'><a class = 'nav-link' href='" + link[1] + "'>" + link[0] + "</a></li>";
+        });
+        navBarUL.innerHTML = navBarListFrag;
 
         //populate main content
         var mainFrag = "";
@@ -42,4 +50,10 @@ $(function() {
         var footerString = db.components.footer.replace("{year}", currentYear);
         footer.innerHTML ="<p>" + footerString + "</p>";
     };
+
+
+    window.onpopstate = changeRoute;
+    var changeRoute = function(){
+        debugger;
+    }
 });

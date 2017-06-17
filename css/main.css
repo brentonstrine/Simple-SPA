@@ -4,11 +4,15 @@
    Author's custom styles
    ========================================================================== */
 
-
-
-
-
-
+.nav-item {
+       display: block;
+}
+.nav-link {
+       padding: 0 1em;
+       line-height: 50px;
+} .nav-link.nav-link.nav-link { /* EASB */
+    line-height: 50px;
+}
 
 
 

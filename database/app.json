@@ -7,12 +7,40 @@
                 "This website is a single page app built from the ground up on a JPJH stack. JPJH stands for JSON, PHP, Javascript and HTML.",
                 "There are definitely better stacks out there, but for the sake of learning web development, this stack is helpful."
             ]
+        },
+        "about": {
+            "title": "Brenton's Homepage",
+            "heading": "About Brenton Strine",
+            "main": [
+                "Brenton is a web developer and a teacher for <a href=\"https://friendsofrefugees.com/\">Friends of Refugees</a>. ",
+                "If you would like to help him in his mission to helping refugees find work in the community, please contact him at <b>brenton.strine@gmail.com</b>."
+            ]
+        },
+        "portfolio": {
+            "title": "Brenton's Homepage",
+            "heading": "Brenton's Portfolio",
+            "main": [
+                "Haven't added anything here yet. Check back later."
+            ]
+        },
+        "blog": {
+            "title": "Brenton's Homepage",
+            "heading": "Blog",
+            "main": [
+                "Haven't added anything here yet. Check back later."
+            ]
         }
     },
     "components": {
         "title": "Brenton's Homepage",
         "sidebar": {
-            "heading": "Site Navigation"
+            "heading": "Site Navigation",
+            "links": [
+                ["Home", "#home"],
+                ["About", "#about"],
+                ["Portfolio", "#portfolio"],
+                ["Blog", "#blog"]
+            ]
         },
         "footer": "Copyright {year} Brenton Strine"
     }
