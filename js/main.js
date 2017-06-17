@@ -43,6 +43,9 @@ $(function() {
         });
         navBarUL.innerHTML = navBarListFrag;
 
+        //highlight link to current page
+        highlightLink(currentPage);
+
         //populate main content
         var mainFrag = "";
         dbPage.main.forEach(function(paragraph){
@@ -98,5 +101,9 @@ $(function() {
 
     var setRoute = function(newRoute){
         history.pushState({"page": newRoute}, "", newRoute);
+    };
+
+    var highlightLink = function(link){
+        document.querySelector("[href='#" + link + "']").className += " js-link__active";
     };
 });
