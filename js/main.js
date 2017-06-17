@@ -16,7 +16,11 @@ $(function() {
     getData();
 
     var buildSite = function(page){
-        var currentPage = page || "home";
+        var currentPage = page || getRoute();
+        if(typeof currentPage === "undefined") {
+            currentPage = "home";
+            setRoute("#home");
+        }
         var siteHeading = document.querySelector(".js-site__heading");
         var content = document.querySelector(".js-content");
         var pageHeading = content.querySelector(".js-page__heading");
@@ -66,21 +70,33 @@ $(function() {
                     anchor.addEventListener("click", function(event){ //*callback functions, "this" context is different
                         //onclick, intercept and stop normal behavior
                         event.preventDefault();
-                        var page = this.getAttribute("href").substr(1);
-                        //fire the pushstate method
-                        history.pushState({}, "nothing", page);
-                        changeRoute(page);
+                        var newPage = this.getAttribute("href");
+                        //tell the browser we are changing pages
+                        history.pushState({"page": newPage}, "", newPage);
+                        changeRoute(newPage);
                     });
                 }
             }
         });
     };
 
-    window.onpopstate = changeRoute;
+    //listen for page history changes (e.g. 'back' button)
+    window.onpopstate = function(e){
+        var page = e.state.page;
+        changeRoute(page);
+    };
+
     var changeRoute = function(page){
-        buildSite(page);
+        var pageName = page.substr(1)
+        buildSite(pageName);
     }
+
     var getRoute = function(){
-        debugger;
+        var path = document.location.href.split("#")[1];
+        return path;
+    };
+
+    var setRoute = function(newRoute){
+        history.pushState({"page": newRoute}, "", newRoute);
     };
 });
