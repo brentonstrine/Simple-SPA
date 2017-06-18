@@ -1,0 +1,29 @@
+<html>
+<script>
+
+
+var interpobrace = function(template, vars){
+    template = "__emptystring__}" + template; // saves us a check later on in a loop
+    vars.__emptystring__ = "";
+
+    var output = "";
+    var templateArray = template.split("{");
+    templateArray.forEach(function(varString){
+        var varStringArray = varString.split("}");
+        var interpolation = vars[varStringArray[0]];
+        var remainingString = varStringArray[1];
+        output += interpolation + remainingString;
+    });
+    console.log(output);
+    return output;
+}
+
+var tpl = "My name is {name}. I am {age} years old and my hobby is {hobby}.";
+var data = {
+    name: "Brenton",
+    age: 34,
+    hobby: "yardwork",
+};
+interpobrace(tpl, data);
+
+</script>
